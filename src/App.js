@@ -7,27 +7,15 @@ import Cadastro from './Componentes/Cadastro';
 function App() {
 
 	/*
-		max-height: 400px; overflow: auto;
+
 		-------------- ATIVIDADE --------------
-		- Transferir o cadastro para um componente
-			separado (Cadastro.js)
 
-		- Adicionar e-mail no objeto de usuários e
-			também no cadastro
-
-		- Não deixar o usuário cadastrar um nome
-			vazio, nem menor que 3 caracteres
-
-		- Não deixar o usuário cadastrar um email
-			que não tenha arroba
 
 		* Use a biblioteca React-toastify para
 			exibir as mensagens de erro
 
 	*/
 	
-	
-
 	
 
 	// Como Funciona os objetos em JavaScript
