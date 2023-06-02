@@ -16,7 +16,7 @@ function Cadastro( { usuarios, alteraUsuarios } ){
         }
         // Trativa do e-mail
         if( email.indexOf("@") == -1 || email.length < 10 || email.indexOf(".") == -1 ){
-            alert("Falta o arroba")
+            alert("E-mail está inválido")
             return;
         }
 
