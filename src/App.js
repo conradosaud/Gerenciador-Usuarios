@@ -44,6 +44,7 @@ function App() {
 	]
 
 	const [ usuarios, alteraUsuarios ] = React.useState( usuarios_padrao );
+	const [ editando, alteraEditando ] = React.useState(null);
 
   return (
       <div className="container">
@@ -51,9 +52,9 @@ function App() {
 
 		<div className="d-flex justify-content-around">
 
-			<Listagem usuarios={usuarios} alteraUsuarios={alteraUsuarios}  />
+			<Listagem alteraEditando={alteraEditando} usuarios={usuarios} alteraUsuarios={alteraUsuarios}  />
 
-			<Cadastro usuarios={usuarios} alteraUsuarios={alteraUsuarios} />
+			<Cadastro alteraEditando={alteraEditando} editando={editando} usuarios={usuarios} alteraUsuarios={alteraUsuarios} />
 
 		</div> 
 		

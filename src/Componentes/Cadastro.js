@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
-function Cadastro( { usuarios, alteraUsuarios } ){
+function Cadastro( { usuarios, alteraUsuarios, editando, alteraEditando } ){
 
     const [ nome, alteraNome ] = React.useState("");
     const [ email, alteraEmail ] = React.useState("");
@@ -31,13 +31,20 @@ function Cadastro( { usuarios, alteraUsuarios } ){
 
 	}
 
+    // React.useEffect(()=>{
+    //     if(editando != null){
+    //         alteraNome( editando.nome );
+    //         alteraEditando(null)
+    //     }
+    // }, editando)
+
     return(
         <div className="caixa"> 
             <h2> Cadastro </h2>
             
             <form onSubmit={ (e)=> salvar(e) } >
                 <div class="mb-3 form-floating">
-                    <input onChange={ e => alteraNome(e.target.value) } class="form-control" id="txtNome" placeholder="Nome" />
+                    <input value={ editando == null ? nome : editando.nome } onChange={ e => alteraNome(e.target.value) } class="form-control" id="txtNome" placeholder="Nome" />
                     <label for="txtNome" class="form-label">Nome</label>
                 </div>
                 <div class="mb-3 form-floating">
