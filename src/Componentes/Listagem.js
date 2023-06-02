@@ -14,7 +14,7 @@ function Listagem( props ){
 							<p> Nome: {item.nome}</p>
 							<p> Email: {item.email}</p>
 							<p> Status: {item.status == true ? "Ativo" : "Banido"}</p>
-							<button>Deletar</button>
+							<button onClick={ ()=> remover(item)  } className="btn btn-secondary btn-sm">Remover</button>
 						</div>
 					)
 				}
