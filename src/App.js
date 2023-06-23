@@ -1,63 +1,43 @@
 import React from 'react';
 
+import supabase from './supabase';
+
 import "./App.css"
 import Listagem from "./Componentes/Listagem"
 import Cadastro from './Componentes/Cadastro';
 
+
 function App() {
 
-	/*
+	const [ usuarios, alteraUsuarios ] = React.useState( [] );
 
-		-------------- ATIVIDADE --------------
-
-
-		* Use a biblioteca React-toastify para
-			exibir as mensagens de erro
-
-	*/
-	
-	
-
-	// Como Funciona os objetos em JavaScript
-	const usuario = {
-		// chave: valor
-		nome: "Conrado",
-		idade: 15,
-		status: true,
-		endereco: {
-			rua: "Rua x",
-			numero: 139,
-			complemneto:"ap 20"
-		},
-		vacinas_covid19:["Pfizer", "Pfizer", "Pfizer", "J&J"]
+	function buscaTodos(){
+		supabase.from("usuarios").select()
+		.then ( response => {
+			console.log("Conexão bem sucedida!");
+			console.log( response.data );
+			alteraUsuarios( response.data );
+		} )
+		.catch( response => {
+			console.log("Deu erro na conexão");
+			console.log( response )
+		} )
 	}
-	//console.log(usuario)
-	//console.log(usuario.endereco.rua)
-	//conselo.log( Objects.key(usuario))
 
-	//Como usar um array com objetos dentro
-	const usuarios_padrao = [
-		{nome: "Gabriel", status: true},
-		{nome: "Grazi", status: true},
-		{nome: "Luana", status: true},
-		{nome: "Conrado", status:false}
-	]
-
-	const [ usuarios, alteraUsuarios ] = React.useState( usuarios_padrao );
+	React.useEffect( ()=> {
+		buscaTodos();
+	}, [] )
 
   return (
       <div className="container">
 
-
 		<div className="d-flex justify-content-around">
 
 			<Listagem usuarios={usuarios} alteraUsuarios={alteraUsuarios}  />
-
 			<Cadastro usuarios={usuarios} alteraUsuarios={alteraUsuarios} />
 
 		</div> 
 		
-
       </div>
   );
 }
